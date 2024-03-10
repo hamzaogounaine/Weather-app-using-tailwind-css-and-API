@@ -13,6 +13,7 @@ const sunsetInfo = document.querySelector('.sunset p.text-lg');
 const cityoutput = document.querySelector('#weatherin');
 const skytatus = document.querySelector('#skytatus');
 const iconImage = document.querySelector('.iconPlace img');
+const date = document.querySelector('.datenow');
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     getCityCord()
@@ -72,6 +73,16 @@ function display(lat , lon ,Enname , Arname ){
 
 
     visibilityInfo.textContent =parseInt(response.visibility) /1000  + " Km"
+    const currentDate = new Date();
+
+    const year = currentDate.getFullYear();
+    const month = currentDate.getMonth() + 1; 
+    const day = currentDate.getDate();
+   
+
+    const formattedDate = `${year}-${month < 10 ? '0' : ''}${month}-${day < 10 ? '0' : ''}${day}`;
+
+    date.textContent = formattedDate
 
 
     
