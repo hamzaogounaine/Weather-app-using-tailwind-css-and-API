@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather app</title>
+    <script defer src="script.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Tajawal:wght@500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <style>
+        main {
+            font-family: "Dela Gothic One", sans-serif;
+            font-weight: 100;
+            font-style: normal;
+        }
+        header{
+            font-family: poppins;
+        }
+        .info .card:hover{
+            scale: 1.001;
+            box-shadow: 10px 5px 10px rgba(0, 0, 0, 0.436);
+            transition: all 0.2s ease;
+            
+        }
+        
+    </style>    
+
+</head>
+<body>
+    <div class="container p-5 ">
+        <header class="flex justify-center items-center gap-7">
+            <div class="logo flex gap-3 items-center  px-2 bg-slate-100 rounded-lg h-10"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15a4.5 4.5 0 0 0 4.5 4.5H18a3.75 3.75 0 0 0 1.332-7.257 3 3 0 0 0-3.758-3.848 5.25 5.25 0 0 0-10.233 2.33A4.502 4.502 0 0 0 2.25 15Z" />
+              </svg>
+              Wather APP
+            </div>
+            <div class="search relative w-3/5">
+                <form action="" id="form1">
+                <input type="text" class="w-full bg-slate-100 h-10 rounded-lg ps-10 focus:outline-none focus:ring-1" placeholder="London">
+                <div class="absolute left-2 top-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                    </svg>
+                    
+                </div>
+            </div>
+            <div class="relative submit ">
+                <div class="absolute text-white right-1 top-[6px] ">
+                    
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                    </svg>
+                </div>
+                
+                <button class="bg-black text-slate-100 px-4  rounded-lg h-10 pe-9">Submit</button>
+            </div>
+        </form>
+        </header>
+        <main class="mt-5 px-5">
+            <h1 class="text-2xl " id="weatherin">Today Weather in ...</h1>
+            <div class="info  grid grid-cols-3 max-sm:grid-cols-1 gap-5 mt-6 font-[poppins] p-8 ">
+                <div class="card maincard border border-black bg-slate-100 rounded-lg px-8 h-96 pb-6 text-center flex flex-col max-sm:gap-3 justify-center">
+                    <div class="iconPlace ">
+                        <img src="../img/animated/10d.svg" alt="" class="m-auto drop-shadow-xl" width="150">
+                    </div>
+                    <div class="temp font-[poppins]">
+                        <p class="degree text-4xl " >21 C</p>
+                        <p id="skytatus">Clear sky</p>
+                    </div>
+                    <hr class=" border m-3 border-black rounded">
+                    <div>
+                        <div class="city">
+                            <div class="flex justify-between px-6 mb-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+                                  </svg>
+                                <p id="cityname">Agadir</p>
+                            </div>
+                        </div>
+                        <div class="date">
+                            <div class="flex justify-between px-6 ">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
+                                  </svg>
+                                  
+                                <p class="">25/12/2002</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="secondCard  flex flex-col justify-between ">
+                    <div class="card max-sm:gap-3 flex bg-slate-100 rounded-lg px-3 gap-3 py-6">
+
+                        <div class="wind">
+                            <div><img src="../img/animated/wind-speed.svg" height="50" width="50" alt="wind"></div>
+                        </div>
+                        <div class="wind">
+                            <p class="opacity-80">Wind speed</p>
+                            <p class="text-lg "> 28Km/h</p>
+                        </div>
+                    </div>
+                    <div class="card max-sm:gap-3 flex bg-slate-100 rounded-lg px-3 gap-3 py-6">
+
+                        <div class="pressure">
+                            <div><img src="../img/animated/pressure.svg" height="50" width="50" alt="wind"></div>
+                        </div>
+                        <div class="pressure">
+                            <p class="opacity-80">Pressure</p>
+                            <p class="text-lg "> 1008hPa</p>
+                        </div>
+                    </div>
+                    <div class="card max-sm:gap-3 flex bg-slate-100 rounded-lg px-3 gap-3 py-6">
+
+                        <div class="sunrise">
+                            <div><img src="../img/animated/sunrise.svg" height="50" width="50" alt="wind"></div>
+                        </div>
+                        <div class="sunrise">
+                            <p class="opacity-80">Sunrise</p>
+                            <p class="text-lg "> 06:26</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="third flex flex-col justify-between">
+                    <div class="card max-sm:gap-3 flex bg-slate-100 rounded-lg px-3 gap-3 py-6">
+
+                        <div class="humdity">
+                            <div><img src="../img/animated/humidity.svg" height="50" width="50" alt="wind"></div>
+                        </div>
+                        <div class="humdity">
+                            <p class="opacity-80">Humidity</p>
+                            <p class="text-lg "> 48%</p>
+                        </div>
+                    </div>
+                    <div class="card max-sm:gap-3 flex bg-slate-100 rounded-lg px-3 gap-3 py-6">
+
+                        <div class="visibility">
+                            <div><img src="../img/animated/visibility.svg" height="50" width="50" alt="wind"></div>
+                        </div>
+                        <div class="visibility">
+                            <p class="opacity-80">Visibilty</p>
+                            <p class="text-lg ">10 Km</p>
+                        </div>
+                    </div>
+                    <div class="card max-sm:gap-3 flex bg-slate-100 rounded-lg px-3 gap-3 py-6">
+
+                        <div class="sunset">
+                            <div><img src="../img/animated/sunset.svg" height="50" width="50" alt="wind"></div>
+                        </div>
+                        <div class="sunset">
+                            <p class="opacity-80">Sunset</p>
+                            <p class="text-lg "> 19:44</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
